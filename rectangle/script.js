@@ -36,8 +36,10 @@ const thunderVolVal = document.getElementById("thunderVolVal");
 const thunderFreqSlider = document.getElementById("thunderFreq");
 const thunderFreqVal = document.getElementById("thunderFreqVal");
 const triggerLightningBtn = document.getElementById("triggerLightningBtn");
+const fullscreenBtn = document.getElementById("fullscreenBtn");
 const panelClock = document.getElementById("panelClock");
 const enableThunderCheckbox = document.getElementById("enableThunder");
+const bottomLeftClock = document.getElementById("bottomLeftClock");
 
 // States
 let lightningIntensity = 0;
@@ -100,9 +102,19 @@ enableThunderCheckbox.addEventListener("change", (e) => {
 // Update clock time
 function updateClock() {
     const now = new Date();
+    // 24h format for the panel clock
     const timeStr = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false });
     const dateStr = now.toLocaleDateString([], { month: 'short', day: 'numeric' });
     panelClock.textContent = `${timeStr} • ${dateStr}`;
+
+    // 12h format for the bottom left clock
+    let hours = now.getHours();
+    const minutes = String(now.getMinutes()).padStart(2, '0');
+    const seconds = String(now.getSeconds()).padStart(2, '0');
+    const ampm = hours >= 12 ? 'PM' : 'AM';
+    hours = hours % 12;
+    hours = hours ? hours : 12;
+    bottomLeftClock.textContent = `${hours}:${minutes}:${seconds} ${ampm}`;
 }
 setInterval(updateClock, 1000);
 updateClock();
@@ -146,12 +158,6 @@ thunderFreqSlider.addEventListener("input", (e) => {
 });
 
 musicSelect.addEventListener("change", (e) => {
-    if (e.target.value === "github") {
-        window.open("https://github.com/anantacoder", "_blank");
-        // Revert select back to previous music track
-        musicSelect.value = musicType || "none";
-        return;
-    }
     if (!isAudioInitialized) initAudioEngine();
     changeMusicType(e.target.value, parseFloat(musicVolSlider.value));
 });
@@ -159,6 +165,24 @@ musicSelect.addEventListener("change", (e) => {
 triggerLightningBtn.addEventListener("click", () => {
     if (!isAudioInitialized) initAudioEngine();
     triggerLightning(false);
+});
+
+fullscreenBtn.addEventListener("click", () => {
+    if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen().catch(err => {
+            console.error(`Error attempting to enable fullscreen mode: ${err.message} (${err.name})`);
+        });
+    } else {
+        document.exitFullscreen();
+    }
+});
+
+document.addEventListener("fullscreenchange", () => {
+    if (document.fullscreenElement) {
+        fullscreenBtn.innerHTML = "🖥️ Exit Fullscreen";
+    } else {
+        fullscreenBtn.innerHTML = "🖥️ Fullscreen";
+    }
 });
 
 // ----------------------------------------------------

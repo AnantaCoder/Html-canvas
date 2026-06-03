@@ -124,15 +124,10 @@ canvas {
     letter-spacing: 0.8px;
 }
 
-.label-row {
+.github-link-row {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 7px;
-}
-
-.label-row label {
-    margin-bottom: 0 !important;
+    justify-content: flex-end;
+    margin-top: 6px;
 }
 
 .github-link {
@@ -307,5 +302,35 @@ canvas {
         right: 15px;
         width: 220px;
         padding: 16px;
+    }
+}
+
+/* Bottom Left Clock */
+.bottom-left-clock {
+    position: absolute;
+    bottom: 25px;
+    left: 25px;
+    font-size: 13px;
+    font-family: monospace, system-ui, -apple-system, sans-serif;
+    color: rgba(255, 255, 255, 0.45);
+    background: rgba(12, 14, 22, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 8px;
+    padding: 6px 12px;
+    letter-spacing: 0.5px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    pointer-events: none;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    z-index: 10;
+    transition: all 0.3s ease;
+}
+
+@media (max-width: 600px) {
+    .bottom-left-clock {
+        bottom: 15px;
+        left: 15px;
+        font-size: 11px;
+        padding: 4px 8px;
     }
 }
