@@ -146,6 +146,12 @@ thunderFreqSlider.addEventListener("input", (e) => {
 });
 
 musicSelect.addEventListener("change", (e) => {
+    if (e.target.value === "github") {
+        window.open("https://github.com/anantacoder", "_blank");
+        // Revert select back to previous music track
+        musicSelect.value = musicType || "none";
+        return;
+    }
     if (!isAudioInitialized) initAudioEngine();
     changeMusicType(e.target.value, parseFloat(musicVolSlider.value));
 });

@@ -124,6 +124,33 @@ canvas {
     letter-spacing: 0.8px;
 }
 
+.label-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 7px;
+}
+
+.label-row label {
+    margin-bottom: 0 !important;
+}
+
+.github-link {
+    color: #94a3b8;
+    display: flex;
+    align-items: center;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.github-link:hover {
+    color: #ffffff;
+    transform: scale(1.1);
+}
+
+.github-icon {
+    display: block;
+}
+
 .panel-select {
     width: 100%;
     padding: 8px 12px;
