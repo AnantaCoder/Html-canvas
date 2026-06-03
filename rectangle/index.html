@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cozy Rainy Day Storm</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <canvas id="myCanvas" width="800" height="800"></canvas>
+        
+        <!-- Minimalist Toggle Button -->
+        <button id="panelToggleBtn" class="panel-toggle-btn">⚙️</button>
+        
+        <!-- Control Panel overlay -->
+        <div id="controlPanel" class="control-panel hidden">
+            <!-- Digital clock & date info when open -->
+            <div id="panelClock" class="panel-clock">12:00:00 - Jan 1</div>
+
+            <h3 class="panel-title">Ambient Controls</h3>
+            
+            <div class="control-group">
+                <label for="musicSelect">Ambient Music</label>
+                <select id="musicSelect" class="panel-select">
+                    <option value="none">None</option>
+                    <option value="lofi">Cozy Lofi Chords</option>
+                    <option value="meditation">Meditation Drone</option>
+                    <option value="piano">Mellow Piano Melody</option>
+                    <option value="chimes">Wind Chimes</option>
+                    <option value="synthwave">Cosmic Synthwave</option>
+                    <option value="fireplace">Cozy Fireplace Crackle</option>
+                    <option value="flute">Ethereal Flute</option>
+                    <option value="techno">Minimal Techno Beat</option>
+                </select>
+            </div>
+
+            <div class="control-group">
+                <label for="musicVol">Music Volume</label>
+                <div class="slider-container">
+                    <input type="range" id="musicVol" min="0" max="1" step="0.05" value="0.7">
+                    <span id="musicVolVal">70%</span>
+                </div>
+            </div>
+            
+            <div class="control-group">
+                <label for="rainVol">Rain Volume</label>
+                <div class="slider-container">
+                    <input type="range" id="rainVol" min="0" max="1" step="0.05" value="0.3">
+                    <span id="rainVolVal">30%</span>
+                </div>
+            </div>
+            
+            <div class="control-group">
+                <label for="thunderVol">Thunder Volume</label>
+                <div class="slider-container">
+                    <input type="range" id="thunderVol" min="0" max="1" step="0.05" value="0.7">
+                    <span id="thunderVolVal">70%</span>
+                </div>
+            </div>
+            
+            <div class="control-group">
+                <label for="thunderFreq">Thunder Frequency</label>
+                <div class="slider-container">
+                    <input type="range" id="thunderFreq" min="10" max="600" step="10" value="15">
+                    <span id="thunderFreqVal">15s</span>
+                </div>
+            </div>
+
+            <div class="control-group switch-group">
+                <label for="enableThunder">Auto Thunder</label>
+                <label class="switch">
+                    <input type="checkbox" id="enableThunder" checked>
+                    <span class="slider"></span>
+                </label>
+            </div>
+            
+            <button id="triggerLightningBtn" class="trigger-btn">⚡ Manual Strike</button>
+        </div>
+    </div>
+
+    <script type="module" src="script.js"></script>
+
+</body>
+</html>
