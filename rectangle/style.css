@@ -34,29 +34,32 @@ canvas {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    border-radius: 50%;
-    color: #ffffff;
-    font-size: 18px;
+    background: transparent;
+    border: none;
+    color: rgba(255, 255, 255, 0.35);
     cursor: pointer;
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
     z-index: 20;
     outline: none;
 }
 
 .panel-toggle-btn:hover {
-    background: rgba(255, 255, 255, 0.16);
-    border-color: rgba(255, 255, 255, 0.28);
-    transform: rotate(45deg) scale(1.05);
-    box-shadow: 0 6px 35px rgba(255, 255, 255, 0.08);
+    color: #ffffff;
+    transform: rotate(45deg) scale(1.15);
 }
 
 .panel-toggle-btn:active {
     transform: rotate(45deg) scale(0.95);
+}
+
+.panel-toggle-btn.active {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 50%;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
 }
 
 /* Glassmorphism Control Panel Drawer */

@@ -71,6 +71,7 @@ const activeLightning = [];
 
 panelToggleBtn.addEventListener("click", () => {
     controlPanel.classList.toggle("hidden");
+    panelToggleBtn.classList.toggle("active");
     if (!isAudioInitialized) {
         initAudioEngine();
     }

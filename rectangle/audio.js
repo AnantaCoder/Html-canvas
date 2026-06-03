@@ -376,7 +376,7 @@ function playFireplaceCrackle(musicVol) {
     osc.frequency.setValueAtTime(900 + Math.random() * 1600, now);
     
     gain.gain.setValueAtTime(0, now);
-    gain.gain.linearRampToValueAtTime(0.036 * musicVol, now + 0.0015);
+    gain.gain.linearRampToValueAtTime(0.12 * musicVol, now + 0.0015);
     gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.015);
     
     osc.connect(gain);
@@ -392,7 +392,7 @@ function playFireplaceCrackle(musicVol) {
         rumbleOsc.frequency.setValueAtTime(45 + Math.random() * 40, now);
         
         rumbleGain.gain.setValueAtTime(0, now);
-        rumbleGain.gain.linearRampToValueAtTime(0.16 * musicVol, now + 0.08);
+        rumbleGain.gain.linearRampToValueAtTime(0.48 * musicVol, now + 0.08);
         rumbleGain.gain.exponentialRampToValueAtTime(0.001, now + 0.45);
         
         rumbleOsc.connect(rumbleGain);
